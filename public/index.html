@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Example NodeJS App with Express deployed on Vercel ✨</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta property="og:title" content="Example NodeJS App 👨🏽‍💻" />
+<meta property="og:description" content="Example NodeJS App with Express deployed on Vercel ✨" />
+<meta property="og:url" content="https://✨" />
+<meta name="theme-color" content="#111111">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+body{background:#111;color:#666;font-size:23px} h1{text-align:center}
+input{background:#222;color:#DDD;padding:.23em;font-size:1em}
+main {width:666px;margin:2.3em auto;box-sizing:border-box}
+@media screen and (max-width: 666px),(max-height: 666px) {
+    body{font-size: 12px} main{width:100%;padding:1em}
+}
+</style>
+</head>
+<body>
+<h1>Example NodeJS App with Express deployed on Vercel ✨</h1>
+<main>
+
+	<h3>Simple GET - HTML response </h3>
+	<a href="/hello">/hello</a> or <a href="/hello?name=Me">/hello?name=Me</a>
+	<hr>
+
+	<h3>Form GET /get_data (urlencoded query)</h3>
+	<form action="get_data" method="GET">
+	Enter Username: <input name="user">
+	<input type="submit">
+	</form><hr>
+
+	<h3>Form POST /post_data (urlencoded body)</h3>
+	<form action="post_data" method="POST">
+	Enter Username: <input name="user">
+	<input type="submit">
+	</form><hr>
+
+	<h3>Fetch POST /post_data (urlencoded body)</h3>
+	<script>
+		async function postURLencoded(user='test'){
+			r = await fetch('/post_data', {
+				method: 'POST',
+				headers: {
+				  'Accept': 'application/json',
+				  'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				body: new URLSearchParams({user}).toString() // user=test
+			});
+			data = await r.json();
+			console.log('postURLencoded =>', data);
+			alert('user: '+data.user);
+		}
+	</script>
+	Enter Username: <input id="eUser">
+	<input type="button" onclick="postURLencoded(eUser.value)" value="postURLencoded">
+	<hr>
+
+	<h3>Fetch POST /post_data (json body)</h3>
+	<script>
+		async function postJSON(user='test'){
+			r = await fetch('/post_data', {
+				method: 'POST',
+				headers: {
+				  'Accept': 'application/json',
+				  'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({user}) // {"user":"test"}
+			});
+			data = await r.json();
+			console.log('postJSON =>', data);
+			alert('user: '+data.user);
+		}
+	</script>
+	Enter Username: <input id="jUser">
+	<input type="button" onclick="postJSON(jUser.value)" value="postJSON">
+
+</main>
+</body>
+</html>
