@@ -9,7 +9,7 @@ Example NodeJS express app on Vercel.
 ## Get the code
 Clone the Git-Repo or [download it as ZIP](https://github.com/p4u2/vercel-node/archive/refs/heads/main.zip).
 ```
-git clone https://github.com/p4u2/vercel-node.git
+git clone git@github.com:p4u2/vercel-node.git
 ```
 
 ## Install and run local (optional)
